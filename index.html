@@ -305,14 +305,15 @@ Since the same motion laws hold on both splits, OOD testing effectively evaluate
 We train all methods (the DiT baseline, LDR, and its ablated variants) from scratch.
 Single-task training fits one model per task.
 Joint training fits one model on all five tasks at once, which is a harder setting.
-Every model conditions on three frames, predicts the next $29$ (i.e., $T=31$), and trains only on ID samples.
+Every model conditions on three frames, predicts the next $29$ (i.e., $T=31$).
 </p>
 
 <p><strong>Metrics.</strong>
-Because the simulator is white-box and each object in our benchmark is a ball, to directly evaluate the dynamics, we extract each object's center and radius from the predicted frames and compare them against the GT, giving position error (<code>pos</code>) and radius error (<code>rad</code>).
+Because the simulator is white-box and each object in our benchmark is a ball, to directly evaluate the dynamics, we extract each object's center and radius from the predicted frames and compare them against the GT, giving position error (<code>pos</code>) and radius error (<code>rad</code>) on both ID and OOD splits, plus the ID-OOD gap $=\max(0,\text{OOD}{-}\text{ID})$.
+</p>
 
 <p><strong>Baselines and ablated variants.</strong>
-We compare against DiT, the standard video-diffusion baseline used in PhyWorld, and two ablations that each remove one LDR component: <strong>w/o Dynamics Reasoning</strong> replaces the kinematic integration with aa direct residual regression of the next latent (i.e., regressing $\boldsymbol{s}_{t+1}-\boldsymbol{s}_{t}$), and <strong>w/o Structured Latent</strong> runs the same dynamics reasoning but on a dense convolutional latent instead.
+We compare against DiT, the standard video-diffusion baseline used in PhyWorld, and two ablations that each remove one LDR component: <strong>w/o Dynamics Reasoning</strong> replaces the kinematic integration with a direct residual regression of the next latent (i.e., regressing $\boldsymbol{s}_{t+1}-\boldsymbol{s}_{t}$), and <strong>w/o Structured Latent</strong> runs the same dynamics reasoning but on a dense convolutional latent instead.
 </p>
 
 <h2 id="results">&sect;5. Numerical Results</h2>
