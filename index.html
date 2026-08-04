@@ -178,14 +178,14 @@
     margin-right: 5px;
   }
   .links-bar svg {
-    height: 0.85em;
-    width: 0.85em;
+    height: 0.95em;
+    width: 0.95em;
     vertical-align: -0.05em;
     margin-right: 5px;
     fill: currentColor;
   }
   pre.selectable {
-    max-width: 900px;
+    max-width: 1300px;
     margin: 16px auto 0;
     padding: 20px 24px;
     border-radius: 8px;
@@ -193,8 +193,8 @@
     overflow-x: auto;
   }
   pre.selectable code {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
     white-space: pre;
   }
 </style>
@@ -260,15 +260,15 @@
 The world evolves following its dynamics, i.e., its laws of motion.
 However, leading video diffusion models largely fit the pixels without modeling how the pixels transit over time.
 Thus, they render visually plausible frames but may not accurately obey the laws.
-<p></p>
+</p><p>
 To capture the dynamics purely from pixels, we introduce Latent Dynamics Reasoning (LDR).
 LDR casts the latent transition as an explicit kinematic integration, where the lower-order dynamics are integrated numerically and the model regresses only the third- and higher-order residual that drives the rollout.
 For this integration to extrapolate better, LDR runs it on a structured latent rather than dense convolutional features.
-<p></p>
+</p><p>
 Following <a href="https://phyworld.github.io/" target="_blank" rel="noopener" class="inline-link">PhyWorld</a>, we validate LDR on a controlled white-box physics benchmark spanning five tasks (uniform motion, parabola, collision, bouncing, looming), focusing on out-of-distribution scenarios that reveal whether a model has truly learned the underlying dynamics.
 LDR extrapolates the learned dynamics far better: the gap between its in- and out-of-distribution error is over 20$\times$ smaller than the video diffusion baseline's, under both single- and joint-task training at 256$^2$ resolution, while using 26$\times$ fewer parameters and running 143$\times$ faster.
 LDR can even generalize under severe shift: for example, trained only on red balls moving left-to-right, it correctly predicts the motion of a blue square moving right-to-left.
-<p></p>
+</p><p>
 <strong>To our knowledge, this is the first video world model that learns the underlying dynamics purely from pixels and extrapolates them beyond the training distribution.</strong>
 </p>
 
