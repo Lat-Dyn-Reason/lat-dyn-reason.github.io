@@ -20,6 +20,9 @@
     color: #111;
     background: #fff;
   }
+  p {
+    font-size: 1.1rem;
+  }
   h1 {
     text-align: center;
     font-size: 1.6rem;
@@ -120,7 +123,7 @@
   }
   h4.sub {
     text-align: center;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     margin-top: 20px;
   }
   .authors {
@@ -222,17 +225,17 @@
   </ol>
 </nav>
 
-<h2 id="motivation">Motivation</h2>
+<h2 id="motivation">&sect;1. Motivation</h2>
 
-<h2 id="abstract">Abstract</h2>
+<h2 id="abstract">&sect;2. Abstract</h2>
 
 <p><strong>TL;DR:</strong> The first video world model that learns the underlying dynamics purely from pixels and extrapolates them beyond the training distribution.</p>
 
 <p>[ abstract text ]</p>
 
-<h2 id="method">Method</h2>
+<h2 id="method">&sect;3. Method</h2>
 
-<h2 id="setup">Experimental Setup</h2>
+<h2 id="setup">&sect;4. Experimental Setup</h2>
 
 <p>We evaluate LDR on a controlled benchmark built on the PhyWorld simulator, spanning five physics tasks: uniform motion, parabola, collision, bouncing, and looming. For each task, we define an in-distribution (ID) range of initial conditions (e.g., initial speed, radius) that the model is trained on, and an out-of-distribution (OOD) range that lies entirely outside it. Crucially, the same law of motion governs both ranges &mdash; only the initial conditions differ, and the model is trained only on ID samples.</p>
 
@@ -240,11 +243,11 @@
 
 <p>Because the simulator is white-box, we can precisely parse each object's position and radius from the predicted frames and compare them against ground truth, giving a direct, interpretable measure of dynamics accuracy (position error / radius error) on both splits, rather than relying on an indirect proxy such as pixel-level reconstruction error.</p>
 
-<h2 id="results">Numerical Results</h2>
+<h2 id="results">&sect;5. Numerical Results</h2>
 
-<h2 id="visual-results">Visual Comparisons</h2>
+<h2 id="visual-results">&sect;6. Visual Comparisons</h2>
 
-<h4 class="sub">Single-Task Training</h4>
+<h4 class="sub">&sect;6.1. Single-Task Training</h4>
 <div class="section" id="sec1_single_task">
   <div class="header-row">
     <div>GT</div>
@@ -365,7 +368,7 @@
   </div>
 </div>
 
-<h4 class="sub">Joint Five-Task Training</h4>
+<h4 class="sub">&sect;6.2. Joint Five-Task Training</h4>
 <div class="section" id="sec2_joint_task">
   <div class="header-row">
     <div>GT</div>
@@ -486,9 +489,10 @@
   </div>
 </div>
 
-<h2 id="stress-test">Stress Test on Uniform Motion</h2>
+<h2 id="stress-test">&sect;7. Stress Test on Uniform Motion</h2>
 
-<h4 class="sub">Trained on only red balls moving left to right.</h4>
+<p>Trained on only red balls moving left to right, but tested on totally unseen appearances / shapes / motion directions.</p>
+
 <div class="section" id="sec3_stress_test">
   <div class="header-row">
     <div>GT</div>
@@ -565,7 +569,15 @@
   </div>
 </div>
 
-<h2 id="bibtex">BibTeX</h2>
+<h2 id="bibtex">&sect;8. BibTeX</h2>
+
+<pre class="selectable"><code>@article{he2024lotus,
+    title={Lotus: Diffusion-based Visual Foundation Model for High-quality Dense Prediction},
+    author={He, Jing and Li, Haodong and Yin, Wei and Liang, Yixun and Li, Leheng and Zhou, Kaiqiang and Zhang, Hongbo and Liu, Bingbing and Chen, Ying-Cong},
+    journal={arXiv preprint arXiv:2409.18124},
+    year={2024}
+}
+</code></pre>
 
 <script>
 (function () {
