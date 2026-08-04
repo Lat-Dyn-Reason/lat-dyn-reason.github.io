@@ -197,6 +197,13 @@
     line-height: 1.5;
     white-space: pre;
   }
+  .fig {
+    display: block;
+    max-width: 1100px;
+    width: 100%;
+    height: auto;
+    margin: 16px auto;
+  }
 </style>
 </head>
 <body>
@@ -274,6 +281,8 @@ LDR can even generalize under severe shift: for example, trained only on red bal
 
 <h2 id="method">&sect;3. Method</h2>
 
+<img class="fig" src="media/method.png" alt="LDR method overview">
+
 <h2 id="setup">&sect;4. Experimental Setup</h2>
 
 <p>We evaluate LDR on a controlled benchmark built on the PhyWorld simulator, spanning five physics tasks: uniform motion, parabola, collision, bouncing, and looming. For each task, we define an in-distribution (ID) range of initial conditions (e.g., initial speed, radius) that the model is trained on, and an out-of-distribution (OOD) range that lies entirely outside it. Crucially, the same law of motion governs both ranges &mdash; only the initial conditions differ, and the model is trained only on ID samples.</p>
@@ -285,9 +294,16 @@ LDR can even generalize under severe shift: for example, trained only on red bal
 <h2 id="results">&sect;5. Numerical Results</h2>
 
 <h4 class="sub">&sect;5.1. Single-Task Training at 256$\times$256</h4>
+<img class="fig" src="media/s_256.png" alt="Numerical results: single-task training at 256x256">
+
 <h4 class="sub">&sect;5.2. Joint Five-Task Training at 256$\times$256</h4>
+<img class="fig" src="media/j_256.png" alt="Numerical results: joint five-task training at 256x256">
+
 <h4 class="sub">&sect;5.3. Single-Task Training at 128$\times$128</h4>
+<img class="fig" src="media/s_128.png" alt="Numerical results: single-task training at 128x128">
+
 <h4 class="sub">&sect;5.4. Joint Five-Task Training at 128$\times$128</h4>
+<img class="fig" src="media/j_128.png" alt="Numerical results: joint five-task training at 128x128">
 
 <h2 id="visual-results">&sect;6. Visual Comparisons</h2>
 
