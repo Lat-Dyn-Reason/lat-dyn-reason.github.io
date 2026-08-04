@@ -290,7 +290,7 @@ LDR can even generalize under severe shift: for example, trained only on red bal
 Given three conditioning frames $I_0,I_1,I_2$, LDR predicts the future frames $\hat{I}_3,\hat{I}_4,\dots,\hat{I}_T$ in three stages.
 <strong>(A)</strong> LDR first encodes each input frame into a structured latent (SL).
 <strong>(B)</strong> LDR measures the low-order time derivatives of the given SL, then rolls out by regressing only the high-order residual with $f_\theta$ and numerically integrating the lower orders to the next latent $\hat{\boldsymbol{s}}_t$ ($t\in\{3,4,\cdots,T\}$).
-<strong>(C)</strong> LDR finally decodes each predicted latent to an RGB frame $\hat{I}_t$.
+<strong>(C)</strong> LDR finally decodes each predicted latent $\hat{\boldsymbol{s}}_t$ to an RGB frame $\hat{I}_t$.
 </p>
 
 <h2 id="setup">&sect;4. Experimental Setup</h2>
@@ -313,7 +313,7 @@ Because the simulator is white-box and each object in our benchmark is a ball, t
 </p>
 
 <p><strong>Baselines and ablated variants.</strong>
-We compare against DiT, the standard video-diffusion baseline used in PhyWorld, and two ablations that each remove one LDR component: <strong>w/o Dynamics Reasoning</strong> replaces the kinematic integration with a direct residual regression of the next latent (i.e., regressing $\boldsymbol{s}_{t+1}-\boldsymbol{s}_{t}$), and <strong>w/o Structured Latent</strong> runs the same dynamics reasoning but on a dense convolutional latent instead.
+We compare against the DiT-S baseline of PhyWorld, which represents standard video diffusion models, and two ablations that each remove one LDR component: <strong>w/o Dynamics Reasoning</strong> replaces the kinematic integration with a direct residual regression of the next latent (i.e., regressing $\boldsymbol{s}_{t+1}-\boldsymbol{s}_{t}$), and <strong>w/o Structured Latent</strong> runs the same dynamics reasoning but on a dense convolutional latent instead.
 </p>
 
 <h2 id="results">&sect;5. Numerical Results</h2>
