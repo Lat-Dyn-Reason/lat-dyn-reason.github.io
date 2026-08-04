@@ -1,1 +1,496 @@
-TEST
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Multimedia Archive</title>
+<style>
+  :root {
+    color-scheme: light;
+    --block: 256px;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+    color: #111;
+    background: #fff;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.3rem;
+    scroll-margin-top: 16px;
+  }
+  nav.toc {
+    max-width: 1300px;
+    margin: 24px auto 0;
+    padding: 24px 16px;
+    /* border: 1px solid #666; */
+    border-radius: 8px;
+    background: #f6f6f6;
+  }
+  nav.toc h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  nav.toc ol {
+    margin: 0;
+    padding-left: 20px;
+  }
+  nav.toc li {
+    margin: 4px 0;
+  }
+  nav.toc a {
+    color: #0645ad;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  nav.toc a:hover {
+    text-decoration: underline;
+  }
+  .section {
+    margin-top: 24px;
+  }
+  .header-row {
+    display: grid;
+    grid-template-columns: var(--block) repeat(4, var(--block));
+    gap: 4px;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .header-row div {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    align-self: end;
+  }
+  .header-row .ours {
+    font-weight: 800;
+  }
+  .task-row {
+    display: grid;
+    grid-template-columns: var(--block) repeat(4, var(--block));
+    gap: 4px;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .cell video {
+    width: var(--block);
+    height: var(--block);
+    display: block;
+    background: #000;
+    border: 1px solid #000;
+    box-sizing: border-box;
+  }
+  .gt-cell {
+    display: flex;
+    flex-direction: column;
+  }
+  .gt-cell video {
+    width: var(--block);
+    height: var(--block);
+    display: block;
+    background: #fff;
+    border: 1px solid #000;
+    box-sizing: border-box;
+  }
+  .task-label {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<h1>Supplementary Media Materials of<br>Learning How the World Evolves: Extrapolative Video World Models via Latent Dynamics Reasoning</h1>
+
+<nav class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li><a href="#toc-sec1">Qualitative Comparison of Single-Task Training</a></li>
+    <li><a href="#toc-sec2">Qualitative Comparison of Joint Five-Task Training</a></li>
+    <li><a href="#toc-sec3">Stress OOD Test</a></li>
+  </ol>
+</nav>
+
+<h2 id="toc-sec1">Qualitative Comparison of Single-Task Training</h2>
+<div class="section" id="sec1_single_task">
+  <div class="header-row">
+    <div>GT</div>
+    <div>DiT Baseline</div>
+    <div>LDR w/o Dynamic Reasoning</div>
+    <div>LDR w/o Structured Latent</div>
+    <div class="ours">LDR (Ours)</div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec1_single_task/uniform_motion/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Task: Uniform Motion</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/uniform_motion/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/uniform_motion/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/uniform_motion/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/uniform_motion/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/uniform_motion/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/uniform_motion/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/uniform_motion/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/uniform_motion/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec1_single_task/parabola/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Task: Parabola</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/parabola/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/parabola/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/parabola/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/parabola/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/parabola/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/parabola/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/parabola/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/parabola/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec1_single_task/collision/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Task: Collision</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/collision/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/collision/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/collision/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/collision/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/collision/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/collision/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/collision/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/collision/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec1_single_task/bouncing/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Task: Bouncing</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/bouncing/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/bouncing/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/bouncing/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/bouncing/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/bouncing/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/bouncing/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/bouncing/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/bouncing/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec1_single_task/looming/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Task: Looming</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/looming/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/looming/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/looming/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/looming/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/looming/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/looming/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec1_single_task/looming/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec1_single_task/looming/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+</div>
+
+<h2 id="toc-sec2">Qualitative Comparison of Joint Five-Task Training</h2>
+<div class="section" id="sec2_joint_task">
+  <div class="header-row">
+    <div>GT</div>
+    <div>DiT Baseline</div>
+    <div>LDR w/o Dynamic Reasoning</div>
+    <div>LDR w/o Structured Latent</div>
+    <div class="ours">LDR (Ours)</div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec2_joint_task/uniform_motion/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Task: Uniform Motion</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/uniform_motion/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/uniform_motion/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/uniform_motion/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/uniform_motion/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/uniform_motion/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/uniform_motion/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/uniform_motion/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/uniform_motion/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec2_joint_task/parabola/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Task: Parabola</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/parabola/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/parabola/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/parabola/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/parabola/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/parabola/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/parabola/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/parabola/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/parabola/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec2_joint_task/collision/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Task: Collision</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/collision/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/collision/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/collision/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/collision/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/collision/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/collision/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/collision/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/collision/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec2_joint_task/bouncing/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Task: Bouncing</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/bouncing/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/bouncing/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/bouncing/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/bouncing/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/bouncing/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/bouncing/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/bouncing/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/bouncing/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec2_joint_task/looming/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Task: Looming</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/looming/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/looming/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/looming/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/looming/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/looming/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/looming/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec2_joint_task/looming/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec2_joint_task/looming/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+</div>
+
+<h2 id="toc-sec3">Stress OOD Test on Uniform Motion (trained on only red balls moving left to right)</h2>
+<div class="section" id="sec3_stress_test">
+  <div class="header-row">
+    <div>GT</div>
+    <div>DiT Baseline</div>
+    <div>LDR w/o Dynamic Reasoning</div>
+    <div>LDR w/o Structured Latent</div>
+    <div class="ours">LDR (Ours)</div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec3_stress_test/red_to_pikachu/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Red ball → Pikachu</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_pikachu/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_pikachu/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_pikachu/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_pikachu/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_pikachu/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_pikachu/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_pikachu/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_pikachu/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec3_stress_test/red_to_soccer/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Red ball → Soccer</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_soccer/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_soccer/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_soccer/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_soccer/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_soccer/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_soccer/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_soccer/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_soccer/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec3_stress_test/red_to_basketball/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Red ball → Basketball</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_basketball/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_basketball/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_basketball/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_basketball/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_basketball/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_basketball/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_basketball/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_basketball/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+  <div class="task-row">
+    <div class="gt-cell">
+      <video data-src="media/sec3_stress_test/red_to_blue_square_reversed/gt_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <div class="task-label">Red ball → Blue Square<br>& Reversed Direction</div>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_blue_square_reversed/dit_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_blue_square_reversed/dit_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_blue_square_reversed/ldr_wo_dr_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_blue_square_reversed/ldr_wo_dr_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_blue_square_reversed/ldr_wo_sl_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_blue_square_reversed/ldr_wo_sl_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="cell">
+      <video data-src="media/sec3_stress_test/red_to_blue_square_reversed/ldr_ours_rgb.mp4" class="lv" muted loop playsinline preload="none"></video>
+      <video data-src="media/sec3_stress_test/red_to_blue_square_reversed/ldr_ours_diag.mp4" class="lv" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var videos = document.querySelectorAll('video.lv');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var v = entry.target;
+      if (entry.isIntersecting) {
+        if (!v.getAttribute('src')) {
+          v.setAttribute('src', v.dataset.src);
+        }
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      } else {
+        v.pause();
+      }
+    });
+  }, { rootMargin: '0px', threshold: 0.1 });
+  videos.forEach(function (v) { io.observe(v); });
+})();
+</script>
+
+</body>
+</html>
