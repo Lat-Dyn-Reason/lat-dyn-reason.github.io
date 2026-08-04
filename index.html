@@ -204,6 +204,9 @@
     height: auto;
     margin: 16px auto;
   }
+  .mygray {
+    color: #a8a8a8;
+  }
 </style>
 </head>
 <body>
@@ -283,6 +286,13 @@ LDR can even generalize under severe shift: for example, trained only on red bal
 
 <img class="fig" src="media/method.png" alt="LDR method overview">
 
+<p>
+Given three conditioning frames $I_0,I_1,I_2$, LDR predicts the future frames $\hat{I}_3,\hat{I}_4,\dots,\hat{I}_T$ in three stages.
+<strong>(A)</strong> LDR first encodes each input frame into a structured latent (SL).
+<strong>(B)</strong> LDR measures the low-order time derivatives of the given SL, then rolls out by regressing only the high-order residual with $f_\theta$ and numerically integrating the lower orders to the next latent $\hat{\boldsymbol{s}}_t$ ($t\in\{3,4,\cdots,T\}$).
+<strong>(C)</strong> LDR finally decodes each predicted latent to an RGB frame $\hat{I}_t$.
+</p>
+
 <h2 id="setup">&sect;4. Experimental Setup</h2>
 
 <p>We evaluate LDR on a controlled benchmark built on the PhyWorld simulator, spanning five physics tasks: uniform motion, parabola, collision, bouncing, and looming. For each task, we define an in-distribution (ID) range of initial conditions (e.g., initial speed, radius) that the model is trained on, and an out-of-distribution (OOD) range that lies entirely outside it. Crucially, the same law of motion governs both ranges &mdash; only the initial conditions differ, and the model is trained only on ID samples.</p>
@@ -295,6 +305,14 @@ LDR can even generalize under severe shift: for example, trained only on red bal
 
 <h4 class="sub">&sect;5.1. Single-Task Training at 256$\times$256</h4>
 <img class="fig" src="media/s_256.png" alt="Numerical results: single-task training at 256x256">
+
+<p>
+We report position (<code>pos</code>) and radius (<code>rad</code>) errors on both ID and OOD splits, extracted from the predicted frames, and the ID-OOD gap: $\max(0,\text{OOD}{-}\text{ID})$.
+For collision, we report both full-window (F) and post-collision (P) results.
+The <strong>Avg</strong> rows average results across the five tasks (use only the full-window result for collision), and each competitor's gap is annotated with its ratio to LDR's ($\times$).
+Per split, the best number is in <strong>bold</strong> and the second best is <u>underlined</u>.
+<span class="mygray">Gray rows</span> mark numbers that do not reflect the motion: looming's <code>rad</code> reflects the growing or shrinking motion of the ball, but in the other tasks the ball's radius is physically constant, so <code>rad</code> there reflects primarily rendering fidelity rather than dynamics.
+</p>
 
 <h4 class="sub">&sect;5.2. Joint Five-Task Training at 256$\times$256</h4>
 <img class="fig" src="media/j_256.png" alt="Numerical results: joint five-task training at 256x256">
