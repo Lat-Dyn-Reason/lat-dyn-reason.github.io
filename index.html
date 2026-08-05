@@ -291,7 +291,7 @@ LDR casts the latent transition as an explicit kinematic integration, where the 
 For this integration to extrapolate better, LDR runs it on a structured latent rather than dense convolutional features.
 </p><p>
 Following <a href="https://phyworld.github.io/" target="_blank" rel="noopener" class="inline-link">PhyWorld</a>, we validate LDR on a controlled white-box physics benchmark spanning five tasks (uniform motion, parabola, collision, bouncing, looming), focusing on out-of-distribution scenarios that reveal whether a model has truly learned the underlying dynamics.
-LDR extrapolates the learned dynamics far better: the gap between its in- and out-of-distribution error is over 20$\times$ smaller than the video diffusion baseline's, under both single- and joint-task training at 256$^2$ resolution, while using 26$\times$ fewer parameters and running 143$\times$ faster.
+LDR extrapolates the learned dynamics far better: the gap between its in- and out-of-distribution error is over 20$\times$ smaller than the video diffusion baseline's, under both single- and joint-task training at 256$\times$256 resolution, while using 26$\times$ fewer parameters and running 143$\times$ faster.
 LDR can even generalize under severe shift: for example, trained only on red balls moving left-to-right, it correctly predicts the motion of a blue square moving right-to-left.
 </p><p>
 <strong>To our knowledge, this is the first video world model that learns the underlying dynamics purely from pixels and extrapolates them beyond the training distribution.</strong>
@@ -357,9 +357,8 @@ The following three tables use the same organization, metrics, and notations as 
 <h4 class="sub">&sect;4.5. Efficiency Study</h4>
 <img class="fig3" src="media/efficiency.png" alt="Efficiency study">
 <p>
-LDR predicts in a single feed-forward pass, without iterative diffusion sampling or test-time optimization.
-It thus uses 26$\times$ fewer parameters (4.1M vs. 106.1M) than the DiT-S baseline and runs up to 143$\times$ faster at 256$^2$, while the baseline runs $50$ DDIM steps (following PhyWorld) plus a heavy VAE encode and decode.
-Efficiency is measured on one NVIDIA A100-80G, under the same inference setting as <a href="#setup" class="inline-link">&sect;3</a>.
+LDR uses 26$\times$ fewer parameters (4.1M vs. 106.1M) than the DiT-S baseline and runs up to 143$\times$ faster at 256$\times$256.
+Latency is measured on one NVIDIA A100-80G, under the same inference setting as <a href="#setup" class="inline-link">&sect;3</a>.
 </p>
 
 <h2 id="visual-results">&sect;5. Visual Comparisons</h2>
