@@ -354,11 +354,12 @@ The following three tables use the same organization, metrics, and notations as 
 <h4 class="sub">&sect;4.4. Joint Five-Task Training at 128$\times$128</h4>
 <img class="fig" src="media/j_128.png" alt="Numerical results: joint five-task training at 128x128">
 
-<h4 class="sub">&sect;4.5. Efficiency Study</h4>
+<h4 class="sub">&sect;4.5. Efficiency Study at 256$\times$256</h4>
 <img class="fig3" src="media/efficiency.png" alt="Efficiency study">
 <p>
-Efficiency comparison measured on one NVIDIA A100-80G on $32$-frame clips.
-The DiT-S baseline uses $50$ DDIM steps following PhyWorld.
+LDR predicts in a single feed-forward pass, without iterative diffusion sampling or test-time optimization.
+It thus uses 26$\times$ fewer parameters (4.1M vs. 106.1M) than the DiT-S baseline and runs up to 143$\times$ faster at 256$^2$, while the baseline runs $50$ DDIM steps (following PhyWorld) plus a heavy VAE encode and decode.
+Efficiency is measured on one NVIDIA A100-80G, under the same inference setting as <a href="#setup" class="inline-link">&sect;3</a>.
 </p>
 
 <h2 id="visual-results">&sect;5. Visual Comparisons</h2>
