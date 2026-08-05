@@ -204,6 +204,13 @@
     height: auto;
     margin: 16px auto;
   }
+  .fig2 {
+    display: block;
+    max-width: 850px;
+    width: 100%;
+    height: auto;
+    margin: 16px auto;
+  }
   .mygray {
     color: #a8a8a8;
   }
@@ -251,7 +258,6 @@
 <nav class="toc">
   <h3>Contents</h3>
   <ol>
-    <li><a href="#motivation">Motivation</a></li>
     <li><a href="#abstract">Abstract</a></li>
     <li><a href="#method">Method</a></li>
     <li><a href="#setup">Experimental Setup</a></li>
@@ -262,18 +268,17 @@
   </ol>
 </nav>
 
-<h2 id="motivation">&sect;1. Motivation</h2>
-
-<img class="fig" src="media/motivation.png" alt="Baseline directly regresses the future; LDR instead regresses latent dynamics and reasons the future via kinematics integration.">
-<p>A video model can either directly regress the future as a black box, or, like LDR, regress the latent dynamics and explicitly reason the future through kinematics integration.</p>
-
-<h2 id="abstract">&sect;2. Abstract</h2>
+<h2 id="abstract">&sect;1. Abstract</h2>
 
 <p>
 The world evolves following its dynamics, i.e., its laws of motion.
 However, leading video diffusion models largely fit the pixels without modeling how the pixels transit over time.
 Thus, they render visually plausible frames but may not accurately obey the laws.
-</p><p>
+</p>
+
+<img class="fig2" src="media/motivation.png" alt="Baseline directly regresses the future; LDR instead regresses latent dynamics and reasons the future via kinematics integration.">
+
+<p>
 To capture the dynamics purely from pixels, we introduce Latent Dynamics Reasoning (LDR).
 LDR casts the latent transition as an explicit kinematic integration, where the lower-order dynamics are integrated numerically and the model regresses only the third- and higher-order residual that drives the rollout.
 For this integration to extrapolate better, LDR runs it on a structured latent rather than dense convolutional features.
@@ -285,7 +290,7 @@ LDR can even generalize under severe shift: for example, trained only on red bal
 <strong>To our knowledge, this is the first video world model that learns the underlying dynamics purely from pixels and extrapolates them beyond the training distribution.</strong>
 </p>
 
-<h2 id="method">&sect;3. Method</h2>
+<h2 id="method">&sect;2. Method</h2>
 
 <img class="fig" src="media/method.png" alt="LDR method overview">
 
@@ -296,7 +301,7 @@ Given three conditioning frames $I_0,I_1,I_2$, LDR predicts the future frames $\
 <strong>(C)</strong> LDR finally decodes each predicted latent $\hat{\boldsymbol{s}}_t$ to an RGB frame $\hat{I}_t$.
 </p>
 
-<h2 id="setup">&sect;4. Experimental Setup</h2>
+<h2 id="setup">&sect;3. Experimental Setup</h2>
 
 <p><strong>Benchmark.</strong>
 For validating LDR, we build a controlled benchmark on the PhyWorld simulator, spanning five physics tasks involving one or two moving balls: uniform motion, parabola, collision, bouncing, and looming.
@@ -319,9 +324,9 @@ Because the simulator is white-box and each object in our benchmark is a ball, t
 We compare against the DiT-S baseline of PhyWorld, which represents standard video diffusion models, and two ablations that each remove one LDR component: <strong>w/o Dynamics Reasoning</strong> replaces the kinematic integration with a direct residual regression of the next latent (i.e., regressing $\boldsymbol{s}_{t+1}-\boldsymbol{s}_{t}$), and <strong>w/o Structured Latent</strong> runs the same dynamics reasoning but on a dense convolutional latent instead.
 </p>
 
-<h2 id="results">&sect;5. Numerical Results</h2>
+<h2 id="results">&sect;4. Numerical Results</h2>
 
-<h4 class="sub">&sect;5.1. Single-Task Training at 256$\times$256</h4>
+<h4 class="sub">&sect;4.1. Single-Task Training at 256$\times$256</h4>
 <img class="fig" src="media/s_256.png" alt="Numerical results: single-task training at 256x256">
 
 <p>
@@ -332,18 +337,18 @@ Per split, the best number is in <strong>bold</strong> and the second best is <u
 <span class="mygray">Gray rows</span> mark numbers that do not reflect the motion: looming's <code>rad</code> reflects the growing or shrinking motion of the ball, but in the other tasks the ball's radius is physically constant, so <code>rad</code> there reflects primarily rendering fidelity rather than dynamics.
 </p>
 
-<h4 class="sub">&sect;5.2. Joint Five-Task Training at 256$\times$256</h4>
+<h4 class="sub">&sect;4.2. Joint Five-Task Training at 256$\times$256</h4>
 <img class="fig" src="media/j_256.png" alt="Numerical results: joint five-task training at 256x256">
 
-<h4 class="sub">&sect;5.3. Single-Task Training at 128$\times$128</h4>
+<h4 class="sub">&sect;4.3. Single-Task Training at 128$\times$128</h4>
 <img class="fig" src="media/s_128.png" alt="Numerical results: single-task training at 128x128">
 
-<h4 class="sub">&sect;5.4. Joint Five-Task Training at 128$\times$128</h4>
+<h4 class="sub">&sect;4.4. Joint Five-Task Training at 128$\times$128</h4>
 <img class="fig" src="media/j_128.png" alt="Numerical results: joint five-task training at 128x128">
 
-<h2 id="visual-results">&sect;6. Visual Comparisons</h2>
+<h2 id="visual-results">&sect;5. Visual Comparisons</h2>
 
-<h4 class="sub">&sect;6.1. Single-Task Training</h4>
+<h4 class="sub">&sect;5.1. Single-Task Training at 256$\times$256</h4>
 <div class="section" id="sec1_single_task">
   <div class="header-row">
     <div>GT</div>
@@ -464,7 +469,7 @@ Per split, the best number is in <strong>bold</strong> and the second best is <u
   </div>
 </div>
 
-<h4 class="sub">&sect;6.2. Joint Five-Task Training</h4>
+<h4 class="sub">&sect;5.2. Joint Five-Task Training at 256$\times$256</h4>
 <div class="section" id="sec2_joint_task">
   <div class="header-row">
     <div>GT</div>
@@ -585,7 +590,7 @@ Per split, the best number is in <strong>bold</strong> and the second best is <u
   </div>
 </div>
 
-<h2 id="stress-test">&sect;7. Stress Test on Uniform Motion</h2>
+<h2 id="stress-test">&sect;6. Stress Test on Uniform Motion</h2>
 
 <p>Trained on only red balls moving left to right, but tested on totally unseen appearances / shapes / motion directions.</p>
 
@@ -665,7 +670,7 @@ Per split, the best number is in <strong>bold</strong> and the second best is <u
   </div>
 </div>
 
-<h2 id="bibtex">&sect;8. BibTeX</h2>
+<h2 id="bibtex">&sect;7. BibTeX</h2>
 
 <pre class="selectable"><code>@article{he2024lotus,
     title={Lotus: Diffusion-based Visual Foundation Model for High-quality Dense Prediction},
