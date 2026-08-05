@@ -342,6 +342,7 @@ For collision, we report both full-window (F) and post-collision (P) results.
 The <strong>Avg</strong> rows average results across the five tasks (use only the full-window result for collision), and each competitor's gap is annotated with its ratio to LDR's ($\times$).
 Per split, the best number is in <strong>bold</strong> and the second best is <u>underlined</u>.
 <span class="mygray">Gray rows</span> mark numbers that do not reflect the motion: looming's <code>rad</code> reflects the growing or shrinking motion of the ball, but in the other tasks the ball's radius is physically constant, so <code>rad</code> there reflects primarily rendering fidelity rather than dynamics.
+The following three tables use the same organization, metrics, and notations as here.
 </p>
 
 <h4 class="sub">&sect;4.2. Joint Five-Task Training at 256$\times$256</h4>
@@ -366,7 +367,7 @@ The DiT-S baseline uses $50$ DDIM steps following PhyWorld.
 <div class="section" id="sec1_single_task">
   <div class="header-row">
     <div>GT</div>
-    <div>DiT Baseline</div>
+    <div>DiT-S</div>
     <div>LDR w/o Dynamic Reasoning</div>
     <div>LDR w/o Structured Latent</div>
     <div class="ours">LDR (Ours)</div>
@@ -487,7 +488,7 @@ The DiT-S baseline uses $50$ DDIM steps following PhyWorld.
 <div class="section" id="sec2_joint_task">
   <div class="header-row">
     <div>GT</div>
-    <div>DiT Baseline</div>
+    <div>DiT-S</div>
     <div>LDR w/o Dynamic Reasoning</div>
     <div>LDR w/o Structured Latent</div>
     <div class="ours">LDR (Ours)</div>
@@ -611,7 +612,7 @@ The DiT-S baseline uses $50$ DDIM steps following PhyWorld.
 <div class="section" id="sec3_stress_test">
   <div class="header-row">
     <div>GT</div>
-    <div>DiT Baseline</div>
+    <div>DiT-S</div>
     <div>LDR w/o Dynamic Reasoning</div>
     <div>LDR w/o Structured Latent</div>
     <div class="ours">LDR (Ours)</div>
