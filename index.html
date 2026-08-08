@@ -322,7 +322,7 @@ Every model conditions on three frames, predicts the next $29$ (i.e., $T=31$).
 </p>
 
 <p><strong>Metrics.</strong>
-Because the simulator is white-box and each object in our benchmark is a ball, to directly evaluate the dynamics, we extract each object's center and radius from the predicted frames and compare them against the GT, giving position error (<code>pos</code>) and radius error (<code>rad</code>) on both ID and OOD splits, plus the ID-OOD gap $=\max(0,\text{OOD}{-}\text{ID})$.
+Because the simulator is white-box and each object in our benchmark is a ball, to <strong>directly evaluate the dynamics</strong>, we extract each object's center and radius from the predicted frames and compare them against the GT, giving position error (<code>pos</code>) and radius error (<code>rad</code>) on both ID and OOD splits, plus the ID-OOD gap $=\max(0,\text{OOD}{-}\text{ID})$.
 </p>
 
 <p><strong>Baselines and ablated variants.</strong>
